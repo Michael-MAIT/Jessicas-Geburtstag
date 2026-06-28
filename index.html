@@ -213,7 +213,6 @@
       @keyframes fall {
         to {
           transform: translateY(110vh) rotate(360deg);
-
           opacity: 0;
         }
       }
@@ -236,21 +235,16 @@
     <script>
       for (let i = 0; i < 50; i++) {
         let s = document.createElement("div");
-
         s.className = "sparkle";
-
         s.style.left = Math.random() * 100 + "vw";
         s.style.top = Math.random() * 100 + "vh";
-
         s.style.animationDelay = Math.random() * 5 + "s";
-
         document.body.appendChild(s);
       }
     </script>
 
     <div class="gift-container" onclick="openCard()">
       <p class="click-text">🎁 Klick mich 💖</p>
-
       <div class="gift">
         <div class="bow"></div>
       </div>
@@ -258,9 +252,7 @@
 
     <div class="card" id="card">
       <h1>✨ Alles Liebe zum Geburtstag! ✨</h1>
-
       <h2>Für dich, liebe Jessi 💖</h2>
-
       <img
         src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzlyZGdlanN1Yjk2OXlpMmt1eHo5M3JyMDB6NHdnc2NtY3hiNHZqbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kJLOin5OUi6uQ/giphy.gif"
         alt="Geburtstags GIF"
@@ -282,21 +274,20 @@
     <script>
       function openCard() {
         document.querySelector(".gift-container").style.display = "none";
-
         document.querySelector("#card").style.display = "block";
 
         for (let i = 0; i < 50; i++) {
           let c = document.createElement("div");
-
           c.className = "confetti";
-
-          c.innerHTML = "🎉";
-
+          c.innerHTML = ["🎉", "✨", "💖", "🎂", "🌸"][
+            Math.floor(Math.random() * 5)
+          ];
           c.style.left = Math.random() * 100 + "vw";
-
-          c.style.animationDelay = Math.random() * 2 + "s";
-
+          c.style.animationDelay = Math.random() * 0.8 + "s";
           document.body.appendChild(c);
+          setTimeout(() => {
+            c.remove();
+          }, 4000);
         }
       }
     </script>
