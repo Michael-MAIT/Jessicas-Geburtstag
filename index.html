@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glückwunsch!</title>
+    <style>
+      body {
+        text-align: center;
+        background: linear-gradient(135deg, #97a1f8, #4a88fc);
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .gift-container {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column; /* Stack text and gift vertically */
+        align-items: center;
+        justify-content: center;
+      }
+      .click-text {
+        font-size: 1.2rem;
+        color: #fff;
+        margin-bottom: 15px; /* Add spacing between text and gift */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        animation: pulse 1.5s infinite;
+      }
+      .gift {
+        width: 150px;
+        height: 150px;
+        background-color: #1eaa5d;
+        border-radius: 10px;
+        position: relative;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        animation: bounce 1s infinite;
+      }
+      .gift::before,
+      .gift::after {
+        content: "";
+        position: absolute;
+        background-color: #ffc371;
+      }
+      .gift::before {
+        width: 20px;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+      }
+      .gift::after {
+        width: 100%;
+        height: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+      }
+      .ribbon {
+        width: 50px;
+        height: 25px;
+        background-color: #ffd700;
+        border-radius: 50%;
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(-10px);
+        }
+        50% {
+          transform: translateY(0);
+        }
+      }
+      @keyframes pulse {
+        0% {
+          opacity: 0.8;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gift-container" onclick="openCard()">
+      <p class="click-text">🎁 Klick mich 🎉</p>
+      <div class="gift">
+        <div class="ribbon"></div>
+      </div>
+    </div>
+
+    <script>
+      function openCard() {
+        document.body.innerHTML = `
+          <div class="card-content">
+            <style>
+              body {
+                text-align: center;
+                background: linear-gradient(135deg, #4a90e2, #50c9c3, #667eea, #764ba2);
+                background-size: 400% 400%;
+                animation: gradientAnimation 10s ease infinite;
+                font-family: Arial, sans-serif;
+                color: #c23b19;
+                margin: 0;
+                padding: 0;
+              }
+              @keyframes gradientAnimation {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+              }
+              .card-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 20px;
+              }
+              h1 {
+                font-size: 3rem;
+                margin-top: 50px;
+                animation: fadeIn 2s infinite;
+              }
+              h2 {
+                font-size: 2rem;
+              }
+              @keyframes fadeIn {
+                0%, 100% {
+                  opacity: 0.5;
+                }
+                50% {
+                  opacity: 1;
+                }
+              }
+              img {
+                max-width: 90%;
+                border: 5px solid #c23b19;
+                border-radius: 15px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+              }
+              p {
+                font-size: 1.2rem;
+                margin: 15px;
+              }
+            </style>
+            <h1>🎉 Herzlichen Glückwunsch! 🎂</h1>
+            <h2>Yannik 🥳</h2>
+            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzlyZGdlanN1Yjk2OXlpMmt1eHo5M3JyMDB6NHdnc2NtY3hiNHZqbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kJLOin5OUi6uQ/giphy.gif" alt="Geburtstags GIF">
+            <p>✨ Zum 26. Geburtstag ✨</p>
+          </div>
+        `;
+      }
+    </script>
+  </body>
+</html>
